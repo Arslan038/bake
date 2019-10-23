@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Navbar />
+    <!-- <Navbar /> -->
     <Header id="home"/>
     <Features id="features" />
     <Dashboard id="dashboard" />
@@ -13,7 +13,7 @@
 
 <script>
 // @ is an alias to /src
-import Navbar from '@/components/Navbar.vue'
+// import Navbar from '@/components/Navbar.vue'
 import Header from '@/components/Header.vue'
 import Features from '@/components/Features.vue'
 import Dashboard from '@/components/Dashboard.vue'
@@ -25,7 +25,7 @@ import Footer from '@/components/Footer.vue'
 export default {
   name: 'home',
   components: {
-    Navbar,
+    // Navbar,
     Header,
     Features,
     Dashboard,
