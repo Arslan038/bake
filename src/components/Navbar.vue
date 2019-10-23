@@ -1,5 +1,4 @@
 <template>
-  <div id="op container">
     <!-- :class="[backgroundss]" -->
      <b-navbar toggleable="lg" type="dark" variant=""  :class="getClass"   fixed="top" v-on:scroll.passive='handleScroll'>
             <div class="container">
@@ -22,8 +21,6 @@
                 </b-collapse>
             </div>    
         </b-navbar>
-  
-  </div> 
 </template>
 
 <script>
@@ -38,7 +35,7 @@ export default {
   computed:{
     getClass: function() {
             
-            return this.scrolls > 100 ? 'transparent' : 'white';
+            return this.scrolls > 100 ? 'white' : 'transparent';
     }
   },
   methods: {
@@ -110,7 +107,7 @@ a.nav-link:active {
 }
 
 .transparent {
-    background-color: black !important;
+    background-color: transparent !important;
 }
 
 </style>
