@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="dashboard">
     <Navbar />
     <div class="container">
       <div class="row justify-content-center mt-4">
@@ -148,6 +148,9 @@ td {
 }
 input[type="text"]#search {
     width: 14rem;
+}
+.dashboard {
+  margin-top: 130px;
 }
 @media screen and (min-width: 767px) {
       input[type="text"]#search {

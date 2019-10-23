@@ -1,6 +1,7 @@
 <template>
-    <div>
-        <b-navbar toggleable="lg" type="dark" variant="" :class="getClass" fixed="top" v-b-scrollspy:nav-scroller>
+  <div id="op container">
+    <!-- :class="[backgroundss]" -->
+     <b-navbar toggleable="lg" type="dark" variant=""  :class="getClass"   fixed="top" v-on:scroll.passive='handleScroll'>
             <div class="container">
                 <b-navbar-brand href="http://localhost:8080/#home" class="py-2 px-4">
                     <img src="../../public/logo.png" width="56" alt="">
@@ -21,79 +22,47 @@
                 </b-collapse>
             </div>    
         </b-navbar>
-
-
-
-
-
-        
-    </div>
+  
+  </div> 
 </template>
 
 <script>
 export default {
-    name: 'Navbar',
-    data() {
-        return {
-            scrollPosition: null,
-            showNavbar: true,
-            lastScrollPosition: 0
-        }
-    },
-    methods: {
-        scrollIntoView(evt) {
-        evt.preventDefault()
-        const href = evt.target.getAttribute('href')
-        const el = href ? document.querySelector(href) : null
-        if (el) {
-          this.$refs.content.scrollTop = el.offsetTop
-        }
-      }
-        
-    },
-    computed: {
-        getClass: function() {
+  name: 'Navbar',
+  data () {
+    return{
+      backgroundss:'white',
+      scrolls:0
+    }
+  },
+  computed:{
+    getClass: function() {
             
-            return window.scrollY < 10 ? 'white' : 'transparent';
-        }
-    },
-    
+            return this.scrolls > 100 ? 'transparent' : 'white';
+    }
+  },
+  methods: {
+    handleScroll (event) {
+      console.log("coming boiiii")
+      console.log(window.scrollY)
+      this.scrolls=window.scrollY
+    }
+  },
+  created () {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
 }
 </script>
 
-<style scoped>
-.navbar {
-    
-    width: 99vw !important;
-}
-.navbar .navbar-brand {
-    color: #7AC8ED !important;
-    font-weight: 700;
-    font-size: 1.5rem;
-    padding-left: 20px;
-}
-.navbar.navbar-dark .navbar-brand div {
-    background-image: url('../../public/logo.png');
-}
-.title {
-    margin-left: 10px;
-}
 
-.white {
-    background-color: #fff !important;
+<style>
+#op{
+  
+  background-color:grey;
 }
-
-.transparent {
-    background-color: transparent !important;
-}
-
-/* .navbar.navbar-dark {
-    background: transparent !important;
-    width: 100%;
-    max-width: 100% !important;
-    color: gray;
-} */
-
 #nav-collapse {
     
     margin-left: 40px;
@@ -119,4 +88,31 @@ a.nav-link:active {
   transform: translate3d(0, -100%, 0);
 }
 
+.navbar {
+    
+    width: 99vw !important;
+}
+.navbar .navbar-brand {
+    color: #7AC8ED !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding-left: 20px;
+}
+.navbar.navbar-dark .navbar-brand div {
+    background-image: url('../../public/logo.png');
+}
+.title {
+    margin-left: 10px;
+}
+
+.white {
+    background-color: #fff !important;
+}
+
+.transparent {
+    background-color: black !important;
+}
+
 </style>
+
+

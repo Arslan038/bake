@@ -23,6 +23,6 @@ export default {
         font-size: 16px;
         line-height: 1.8;
         font-weight: 450;
-        position: relative;
+        
     }
 </style>
